@@ -3,7 +3,7 @@
 
 Name:          fedora-kernel-manager
 Version:       %{pkg_release}
-Release:       2%{?dist}
+Release:       3%{?dist}
 License:       GPLv2
 Group:         System Environment/Libraries
 Summary:       A Libadwaita rust based application for managing and installing kernels.
@@ -11,6 +11,9 @@ Summary:       A Libadwaita rust based application for managing and installing k
 
 URL:            https://github.com/CosmicFusion/fedora-kernel-manager
 Source0:        %{URL}/releases/download/%{pkg_release}/fedora-kernel-manager.tar.gz
+
+# https://fedoraproject.org/wiki/Changes/EncourageI686LeafRemoval
+ExcludeArch:    %{ix86}
 
 BuildRequires:	wget
 BuildRequires:	cargo
@@ -52,16 +55,6 @@ DESTDIR=%{buildroot} make install
 %{_prefix}/lib/fedora-kernel-manager/kernel_branches/kernel.json
 %exclude %{_prefix}/lib/fedora-kernel-manager/kernel_branches/kernel-cachyos.json
 %exclude %{_prefix}/lib/fedora-kernel-manager/scripts/kernel-cachyos-init.sh
+%exclude %{_datadir}/polkit-1/actions/fkm.kernel.cachyos.init.policy
+%exclude %{_datadir}/polkit-1/rules.d/99-fkm.kernel.cachyos.init.rules
 
-%package cachyos-config
-Summary:        Config files to enable coprs/bieszczaders/kernel-cachyos in fedora-kernel-manager.
-Requires:       fedora-kernel-manager
-
-%description cachyos-config
-Config files to enable coprs/bieszczaders/kernel-cachyos in fedora-kernel-manager.
-
-%files cachyos-config
-%{_prefix}/lib/fedora-kernel-manager/kernel_branches/kernel-cachyos.json
-%{_prefix}/lib/fedora-kernel-manager/scripts/kernel-cachyos-init.sh
-%{_datadir}/polkit-1/actions/fkm.kernel.cachyos.init.policy
-%{_datadir}/polkit-1/rules.d/99-fkm.kernel.cachyos.init.rules
