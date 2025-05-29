@@ -458,7 +458,7 @@ pub fn get_running_kernel_info() -> RunningKernelInfo {
 }
 
 fn is_scx_kernel() -> bool {
-    if Path::new("/sys/kernel/sched_ext/root/ops").exists() {
+    if Path::new("/sys/kernel/sched_ext/state").exists() {
         true
     } else {
         false

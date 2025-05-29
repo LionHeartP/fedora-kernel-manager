@@ -10,6 +10,16 @@
       "name": "scx_central"
     },
     {
+      "name": "scx_chaos"
+    },
+    {
+      "name": "scx_flash"
+    },
+    {
+      "name": "scx_flatcg"
+    },
+    
+    {
       "name": "scx_lavd"
     },
     {
@@ -17,6 +27,15 @@
     },
     {
       "name": "scx_nest"
+    },
+    {
+      "name": "scx_p2dq"
+    },
+    {
+      "name": "scx_pair"
+    },
+    {
+      "name": "scx_prev"
     },
     {
       "name": "scx_qmap"
@@ -31,7 +50,13 @@
       "name": "scx_rusty"
     },
     {
+      "name": "scx_sdt"
+    },
+    {
       "name": "scx_simple"
+    },
+    {
+      "name": "scx_tickless"
     },
     {
       "name": "scx_userland"
